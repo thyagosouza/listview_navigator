@@ -51,11 +51,11 @@ class _UserPageState extends State<UserPage> {
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                 child: ElevatedButton(
                   child: const Text(
-                    'Send Email',
+                    'Change User',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pop(
+                    Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
                         builder: (context) => UserPage(
                           user: widget.user,
