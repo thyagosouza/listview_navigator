@@ -1,4 +1,6 @@
 # app_listview_navigator
+![json_navigator_corrigido](https://github.com/thyagosouza/listview_navigator/assets/54247489/62c528fb-9bca-4b9b-b34f-51dec61c7b26)
+
 
 A new Flutter project.
 
