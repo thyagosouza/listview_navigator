@@ -7,13 +7,14 @@ import 'user_model.dart';
 
 class UserPage extends StatefulWidget {
   final List<UserModel> user;
-  int? index;
-  int? pageGo1;
+  int index;
+
+  int pageGo1;
   UserPage({
     super.key,
     required this.user,
     required this.pageGo1,
-    this.index,
+    required this.index,
   });
 
   @override
@@ -21,11 +22,10 @@ class UserPage extends StatefulWidget {
 }
 
 class _UserPageState extends State<UserPage> {
-  var pageGo1 = 0;
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text(widget.user[widget.index!].username),
+          title: Text(widget.user[widget.index].username),
         ),
         body: Center(
           child: Column(
@@ -33,12 +33,12 @@ class _UserPageState extends State<UserPage> {
             children: <Widget>[
               CircleAvatar(
                 backgroundImage:
-                    NetworkImage(widget.user[widget.index!].urlAvatar),
+                    NetworkImage(widget.user[widget.index].urlAvatar),
                 radius: 80,
               ),
               const SizedBox(height: 40),
               Text(
-                widget.user[widget.index!].username,
+                widget.user[widget.index].username,
                 style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
@@ -55,12 +55,15 @@ class _UserPageState extends State<UserPage> {
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   onPressed: () {
+                    // setState(() {
+                    //   widget.index = widget.pageGo1;
+                    // });
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
                         builder: (context) => UserPage(
                           user: widget.user,
-                          index: widget.pageGo1,
-                          pageGo1: widget.pageGo1,
+                          index: widget.user[widget.index].pageGo1,
+                          pageGo1: widget.user[widget.index].pageGo1,
                         ),
                       ),
                     );
